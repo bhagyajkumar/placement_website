@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@100;400&display=swap');
+
+code {
+    background-color: gray;
+    padding: 5px;
+    min-width: 100px;
+}
+
+p {
+    margin: 0px;
+}
+
+
+body {
+    margin: 0px;
+    background-color: lightyellow;
+}
+
+a {
+    text-decoration: none;
+}
