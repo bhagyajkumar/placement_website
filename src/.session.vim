@@ -3,23 +3,30 @@ let s:so_save = &g:so | let s:siso_save = &g:siso | setg so=0 siso=0 | setl so=-
 let v:this_session=expand("<sfile>:p")
 silent only
 silent tabonly
-cd ~/program/react/tinkerhub/tinkerhub/src
+cd ~/program/react/sfi/studentportal/src
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +0 ~/program/react/tinkerhub/tinkerhub/src/pages/index.js
+badd +39 pages/index.js
+badd +68 components/Header.js
+badd +27 pages/PostCreator.js
+badd +7 styles/Colors.js
+badd +23 styles/global.css
+badd +1 components/home/HomeText.js
+badd +1 components/home/OurServices.js
+badd +62 styles/Typography.js
 argglobal
 %argdel
-edit ~/program/react/tinkerhub/tinkerhub/src/pages/index.js
+edit components/home/OurServices.js
 argglobal
-balt ~/program/react/tinkerhub/tinkerhub/src/pages/index.js
-let s:l = 3 - ((2 * winheight(0) + 22) / 45)
+balt pages/index.js
+let s:l = 87 - ((44 * winheight(0) + 22) / 45)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 3
-normal! 0
+keepjumps 87
+normal! 027|
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0&& getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
