@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+/* eslint-disable react/prop-types */
+import React, {useEffect, useState} from 'react';
 import {StyleSheet, css} from 'aphrodite';
 import {COLORS} from '../styles/Colors';
 import {Link} from 'gatsby';
@@ -39,19 +40,49 @@ const MenuLinks = [
   },
 ];
 
+const GetTitle = ({headerType}) => {
+  if (headerType == 2) {
+    return (
+      <div className={css(styles.name)}>
+        <span style={{color: COLORS.primary}}>Aa</span>
+        <span style={{color: COLORS.text}}>zadi</span>
+      </div>
+    );
+  }
+  return (
+    <div className={css(styles.name)}>
+      <span style={{color: COLORS.bg}}>Aa</span>
+      <span style={{color: COLORS.text}}>zadi</span>
+    </div>
+  );
+};
+
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
+  const [headerType, setHeaderType] = useState(1);
   const toggeleMenu = () => {
     setShowMenu(!showMenu);
   };
 
-  return (
-    <div className={css(styles.root)}>
-      <div className={css(styles.name)}>
-        <p> CUCEK </p>
-        <p> PLACEMENT </p>
-      </div>
+  useEffect(() => {
+    window.addEventListener('scroll', onScroll);
 
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+    };
+  }, []);
+
+  const onScroll = () => {
+    if (window.scrollY > 100) {
+      setHeaderType(2);
+    } else {
+      setHeaderType(1);
+    }
+  };
+
+  return (
+    <div className={css(styles.root, headerType == 2 ? styles.colorBg : null)}>
+      <GetTitle headerType={headerType} />
       <div className={css(styles.linkContainer)}>
         {Links.map((item, id) => (
           <Link to={item.path} key={id}>
@@ -86,11 +117,18 @@ const Header = () => {
 
 const styles = StyleSheet.create({
   root: {
-    height: 113,
-    backgroundColor: COLORS.bg,
+    position: 'fixed',
+    width: '100vw',
     display: 'flex',
+    paddingTop: 25,
+    paddingBottom: 20,
     justifyContent: 'space-between',
     alignItems: 'center',
+    zIndex: 9099,
+  },
+  colorBg: {
+    backgroundColor: COLORS.bg,
+    boxShadow: '0 4px 2px -2px gray',
   },
   editor: {
     width: '50%',

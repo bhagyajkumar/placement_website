@@ -6,8 +6,9 @@ import {getImage} from 'gatsby-plugin-image';
 import {graphql} from 'gatsby';
 import {convertToBgImage} from 'gbimage-bridge';
 import BackgroundImage from 'gatsby-background-image';
-import HomeText from '../components/home/HomeText';
 import OurServices from '../components/home/OurServices';
+import HomeMain from '../components/home/HomeMain';
+import AboutUs from '../components/home/AboutUs';
 
 const IndexPage = ({data}) => {
   const image = getImage(data.file);
@@ -16,12 +17,14 @@ const IndexPage = ({data}) => {
   return (
     <div>
       <Header />
+      <HomeMain />
+
       <BackgroundImage
         Tag="section"
         {...bgImage}
         preserveStackingContext
         className={css(styles.rootDesktop)}>
-        <HomeText />
+        <AboutUs />
       </BackgroundImage>
 
       <OurServices />
@@ -31,10 +34,11 @@ const IndexPage = ({data}) => {
 
 const styles = StyleSheet.create({
   rootDesktop: {
-    height: 'calc(100vh - 113px)',
+    height: 'calc(100vh - 100px)',
     display: 'flex',
     flexDirection: 'column',
     backgroundPosition: 'left 0px top 0px',
+    marginTop: 100,
   },
 });
 
