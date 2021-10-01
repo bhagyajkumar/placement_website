@@ -3,34 +3,62 @@ import React from 'react';
 import {StyleSheet, css} from 'aphrodite';
 import {COLORS} from '../../styles/Colors';
 import {TypoStyle} from '../../styles/Typography';
+import {useStaticQuery, graphql} from 'gatsby';
+import {GatsbyImage, getImage} from 'gatsby-plugin-image';
 
 const CardItems = [
   {
-    title: 'Exam Preparation',
+    title: '~Exam Preparation',
     content:
       'Study materials for various competitive exams like GATE, SSC, PSC will be provided in ease accessible format',
+    image: 'examPrep.png',
   },
   {
-    title: 'Timed Quizzes',
+    title: '~Timed Quizzes',
     content:
       'Online quiz competitions with time limit to check your daily learning progress.',
+    image: 'timedQuiz.png',
   },
   {
-    title: 'Study Materials',
+    title: '~Study Materials',
     content:
       'Study materials and notes for core concepts and ideas in mechanical engineering. ',
+    image: 'studyMaterial.png',
   },
   {
-    title: 'Placement Assistance',
+    title: '~Placement Assistance',
     content:
       'Various job notifications related to mechanical field including Gov/ Non-Gov vaccancies and guidence for placement drives.',
+    image: 'placementAssist.png',
   },
 ];
 
-const Card = ({cardItem}) => {
+const getImageFromData = (data, imgname) => {
+  let image = null;
+  data.allFile.nodes.forEach(item => {
+    const fileName = item.relativePath.split('/').pop();
+
+    if (imgname == fileName) {
+      image = getImage(item);
+      return;
+    }
+  });
+
+  if (!image) {
+    console.error('OurServices::Failed to find image ', imgname);
+  }
+  return image;
+};
+
+const Card = ({cardItem, data}) => {
   return (
     <div className={css(styles.cardRoot)}>
-      <img className={css(styles.cardImage)}></img>
+      <GatsbyImage
+        className={css(styles.cardImage)}
+        image={getImageFromData(data, cardItem.image)}
+        alt={cardItem.title}></GatsbyImage>
+
+      <div className={css(styles.verticalLine)}></div>
 
       <div>
         <div className={css(TypoStyle.h4)}>{cardItem.title}</div>
@@ -43,11 +71,32 @@ const Card = ({cardItem}) => {
 };
 
 const OurServices = () => {
+  const data = useStaticQuery(graphql`
+    {
+      allFile(
+        filter: {
+          sourceInstanceName: {eq: "images"}
+          relativeDirectory: {eq: "ourServices"}
+        }
+      ) {
+        nodes {
+          childImageSharp {
+            gatsbyImageData(placeholder: BLURRED, formats: AUTO)
+          }
+          relativePath
+        }
+      }
+    }
+  `);
+
   return (
     <div className={css(styles.root)}>
-      <div className={css(TypoStyle.h3, styles.title)}>Our Services</div>
+      <div className={css(TypoStyle.h3, styles.title)}>
+        Our&nbsp;
+        <span style={{color: COLORS.primary}}>Services</span>
+      </div>
       {CardItems.map((item, id) => (
-        <Card cardItem={item} key={id} />
+        <Card cardItem={item} key={id} data={data} />
       ))}
     </div>
   );
@@ -55,7 +104,7 @@ const OurServices = () => {
 
 const styles = StyleSheet.create({
   root: {
-    maxWidth: 1327,
+    maxWidth: 1124,
     margin: 'auto',
     marginTop: 122,
   },
@@ -73,14 +122,21 @@ const styles = StyleSheet.create({
     marginTop: 73,
   },
   cardImage: {
-    width: 184,
-    height: 184,
-    minWidth: 184,
-    minHeight: 184,
-    marginRight: 23,
+    width: 175,
+    height: 175,
+    minWidth: 175,
+    minHeight: 175,
   },
   cardContent: {
     marginTop: 10,
+  },
+  verticalLine: {
+    height: 136,
+    width: 0,
+    border: `2px solid ${COLORS.primary}`,
+    backgroundColor: COLORS.primary,
+    marginLeft: 64,
+    marginRight: 40,
   },
 });
 

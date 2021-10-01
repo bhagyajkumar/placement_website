@@ -9,6 +9,8 @@ import BackgroundImage from 'gatsby-background-image';
 import OurServices from '../components/home/OurServices';
 import HomeMain from '../components/home/HomeMain';
 import AboutUs from '../components/home/AboutUs';
+import Departments from '../components/home/Departments';
+import {COLORS} from '../styles/Colors';
 
 const IndexPage = ({data}) => {
   const image = getImage(data.file);
@@ -28,6 +30,8 @@ const IndexPage = ({data}) => {
       </BackgroundImage>
 
       <OurServices />
+      <Departments />
+      <div className={css(styles.footer)}></div>
     </div>
   );
 };
@@ -39,6 +43,11 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     backgroundPosition: 'left 0px top 0px',
     marginTop: 100,
+  },
+  footer: {
+    backgroundColor: COLORS.primary,
+    marginTop: 109,
+    height: 100,
   },
 });
 
