@@ -1,12 +1,14 @@
 import {useEffect, useState} from 'react';
 import {getDeviceDimention} from '../Utility';
 
+const minResX = 1000;
+
 const useDeviceType = () => {
   const [deviceType, setDeviceType] = useState('mobile');
 
   console.log('here');
   useEffect(() => {
-    const isMobile = getDeviceDimention().width < 1280;
+    const isMobile = getDeviceDimention().width < minResX;
     if (isMobile) {
       setDeviceType('mobile');
     } else {
@@ -19,7 +21,7 @@ const useDeviceType = () => {
       window.addEventListener(
         'resize',
         function () {
-          const isMobile = getDeviceDimention().width < 1280;
+          const isMobile = getDeviceDimention().width < minResX;
           if (isMobile) {
             setDeviceType('mobile');
           } else {
