@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import * as React from 'react';
+import React from 'react';
 import Header from '../components/Header';
 import {StyleSheet, css} from 'aphrodite';
 import {getImage} from 'gatsby-plugin-image';
@@ -11,10 +11,21 @@ import HomeMain from '../components/home/HomeMain';
 import AboutUs from '../components/home/AboutUs';
 import Departments from '../components/home/Departments';
 import {COLORS} from '../styles/Colors';
+import useDeviceType from '../hooks/useDeviceType';
 
 const IndexPage = ({data}) => {
   const image = getImage(data.file);
   const bgImage = convertToBgImage(image);
+
+  const deviceType = useDeviceType();
+
+  if (deviceType == 'mobile') {
+    return (
+      <div>
+        <h1>Mobile view</h1>
+      </div>
+    );
+  }
 
   return (
     <div>
