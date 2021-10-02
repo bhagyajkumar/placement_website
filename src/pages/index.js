@@ -12,8 +12,11 @@ import AboutUs from '../components/home/AboutUs';
 import Departments from '../components/home/Departments';
 import {COLORS} from '../styles/Colors';
 import useDeviceType from '../hooks/useDeviceType';
+import {useRef} from 'react';
 
 const IndexPage = ({data}) => {
+  const aboutUsRef = useRef();
+  const departmentsRef = useRef();
   const image = getImage(data.file);
   const bgImage = convertToBgImage(image);
 
@@ -27,9 +30,27 @@ const IndexPage = ({data}) => {
     );
   }
 
+  const scroolToTop = () => {
+    window.scrollTo(0, 0);
+  };
+
+  const scrollToAboutUs = () => {
+    aboutUsRef.current.scrollIntoView({behavior: 'smooth'});
+  };
+
+  const scrollToDepartments = () => {
+    departmentsRef.current.scrollIntoView({behavior: 'smooth'});
+  };
+
   return (
     <div>
-      <Header />
+      <Header
+        clickHandlers={{
+          Home: scroolToTop,
+          Department: scrollToDepartments,
+          'About Us': scrollToAboutUs,
+        }}
+      />
       <HomeMain />
 
       <BackgroundImage
@@ -37,10 +58,12 @@ const IndexPage = ({data}) => {
         {...bgImage}
         preserveStackingContext
         className={css(styles.rootDesktop)}>
+        <div ref={aboutUsRef} />
         <AboutUs />
       </BackgroundImage>
 
       <OurServices />
+      <div ref={departmentsRef} />
       <Departments />
       <div className={css(styles.footer)}></div>
     </div>

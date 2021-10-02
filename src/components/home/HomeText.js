@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   container: {
-    marginRight: 70,
+    marginRight: 30,
     marginLeft: 'auto',
     maxWidth: 700,
   },
@@ -48,7 +48,6 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     fontSize: '24.9px',
     lineHeight: '30px',
-    textAlign: 'justify',
     color: COLORS.text,
     maxWidth: 500,
   },

@@ -13,15 +13,12 @@ import {
 const Links = [
   {
     name: 'Home',
-    path: '/',
   },
   {
     name: 'Department',
-    path: '/department',
   },
   {
     name: 'About Us',
-    path: '/about',
   },
 ];
 
@@ -57,7 +54,7 @@ const GetTitle = ({headerType}) => {
   );
 };
 
-const Header = () => {
+const Header = ({clickHandlers}) => {
   const [showMenu, setShowMenu] = useState(false);
   const [headerType, setHeaderType] = useState(1);
   const toggeleMenu = () => {
@@ -85,9 +82,9 @@ const Header = () => {
       <GetTitle headerType={headerType} />
       <div className={css(styles.linkContainer)}>
         {Links.map((item, id) => (
-          <Link to={item.path} key={id}>
+          <div onClick={clickHandlers[item.name]} key={id}>
             <div className={css(styles.linkItem)}>{item.name}</div>
-          </Link>
+          </div>
         ))}
 
         <Dropdown open={showMenu} toggle={toggeleMenu} className="d-table">

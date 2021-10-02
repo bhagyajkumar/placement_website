@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     maxWidth: 680,
     minWidth: 680,
     left: 155,
-    top: 95,
+    top: 60,
   },
   div2: {},
 });
