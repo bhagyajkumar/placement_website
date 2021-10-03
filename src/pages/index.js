@@ -13,6 +13,11 @@ import Departments from '../components/home/Departments';
 import {COLORS} from '../styles/Colors';
 import useDeviceType from '../hooks/useDeviceType';
 import {useRef} from 'react';
+import HeaderMobile from '../components/HeaderMobile';
+import HomeMobile from '../components/mobile/HomeMobile';
+import AboutUsMob from '../components/mobile/AboutUsMob';
+import OurServMob from '../components/mobile/OurServMob';
+import DepartmentMob from '../components/mobile/DepartmentMob';
 
 const IndexPage = ({data}) => {
   const aboutUsRef = useRef();
@@ -24,8 +29,12 @@ const IndexPage = ({data}) => {
 
   if (deviceType == 'mobile') {
     return (
-      <div>
-        <h1>Mobile view</h1>
+      <div className={css(styles.rootMob)}>
+        <HeaderMobile />
+        <HomeMobile />
+        <AboutUsMob />
+        <OurServMob />
+        <DepartmentMob />
       </div>
     );
   }
@@ -77,6 +86,10 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     backgroundPosition: 'left 0px top 0px',
     marginTop: 100,
+  },
+  rootMob: {
+    marginLeft: 0,
+    marginRight: 0,
   },
   footer: {
     backgroundColor: COLORS.primary,
