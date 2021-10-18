@@ -18,6 +18,8 @@ import HomeMobile from '../components/mobile/HomeMobile';
 import AboutUsMob from '../components/mobile/AboutUsMob';
 import OurServMob from '../components/mobile/OurServMob';
 import DepartmentMob from '../components/mobile/DepartmentMob';
+import Footer from '../components/home/Footer';
+import FooterMob from '../components/mobile/FooterMob';
 
 const IndexPage = ({data}) => {
   const aboutUsRef = useRef();
@@ -35,6 +37,7 @@ const IndexPage = ({data}) => {
         <AboutUsMob />
         <OurServMob />
         <DepartmentMob />
+        <FooterMob />
       </div>
     );
   }
@@ -74,7 +77,7 @@ const IndexPage = ({data}) => {
       <OurServices />
       <div ref={departmentsRef} />
       <Departments />
-      <div className={css(styles.footer)}></div>
+      <Footer />
     </div>
   );
 };
