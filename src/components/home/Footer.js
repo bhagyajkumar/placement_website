@@ -7,11 +7,11 @@ const Footer = () => {
     <div className={css(styles.root)}>
       <div className={css(styles.container)}>
         <div style={{display: 'flex'}}>
-          <i className="ri-instagram-line"></i>
+          <i className="ri-instagram-line" style={{fontSize: 40}}></i>
           <div className={css(styles.divider)} />
-          <i className="ri-facebook-circle-line"></i>
+          <i className="ri-facebook-circle-line" style={{fontSize: 40}}></i>
           <div className={css(styles.divider)} />
-          <i className="ri-mail-line"></i>
+          <i className="ri-mail-line" style={{fontSize: 40}}></i>
         </div>
 
         <div className={css(styles.text)}>SFI CUSAT</div>

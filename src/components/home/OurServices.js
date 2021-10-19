@@ -19,12 +19,12 @@ const CardItems = [
       'Online quiz competitions with time limit to check your daily learning progress.',
     image: 'timedQuiz.png',
   },
-  {
-    title: '~Study Materials',
-    content:
-      'Study materials and notes for core concepts and ideas in mechanical engineering. ',
-    image: 'studyMaterial.png',
-  },
+  // {
+  //   title: '~Study Materials',
+  //   content:
+  //     'Study materials and notes for core concepts and ideas in mechanical engineering. ',
+  //   image: 'studyMaterial.png',
+  // },
   {
     title: '~Placement Assistance',
     content:

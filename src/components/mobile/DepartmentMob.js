@@ -39,12 +39,12 @@ const DepartmentList = [
   {
     name: 'MCA',
     image: 'MCA.png',
-    link: '',
+    link: 'https://drive.google.com/folderview?id=1dHzEW7huX2FXQoIfOJXn_pvQYiUDVxU2',
   },
   {
     name: 'MATHS',
     image: 'MATHS.png',
-    link: '',
+    link: 'https://drive.google.com/folderview?id=1fUKiypnk5XrYZ2nPPLZfjsIrnOPIwLa9',
   },
   {
     name: 'GENERAL',

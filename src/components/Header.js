@@ -10,6 +10,8 @@ import {
   DropdownItem,
 } from 'shards-react';
 
+import capImg from '../../content/images/noto_graduation-cap.png';
+
 const Links = [
   {
     name: 'Home',
@@ -41,6 +43,7 @@ const GetTitle = ({headerType}) => {
   if (headerType == 2) {
     return (
       <div className={css(styles.name)}>
+        <img src={capImg} alt="cap" />
         <span style={{color: COLORS.primary}}>Aa</span>
         <span style={{color: COLORS.text}}>zadi</span>
       </div>
@@ -48,6 +51,7 @@ const GetTitle = ({headerType}) => {
   }
   return (
     <div className={css(styles.name)}>
+      <img src={capImg} alt="cap" />
       <span style={{color: COLORS.bg}}>Aa</span>
       <span style={{color: COLORS.text}}>zadi</span>
     </div>
@@ -131,6 +135,8 @@ const styles = StyleSheet.create({
     width: '50%',
   },
   name: {
+    display: 'flex',
+    alignItems: 'center',
     marginLeft: 38,
     fontFamily: 'Spartan',
     fontStyle: 'normal',
