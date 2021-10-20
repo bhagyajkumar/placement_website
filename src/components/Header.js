@@ -42,7 +42,11 @@ const MenuLinks = [
 const GetTitle = ({headerType}) => {
   if (headerType == 2) {
     return (
-      <div className={css(styles.name)}>
+      <div
+        className={css(styles.name)}
+        onClick={() => {
+          window.location.href = '/';
+        }}>
         <img src={capImg} alt="cap" />
         <span style={{color: COLORS.primary}}>Aa</span>
         <span style={{color: COLORS.text}}>zadi</span>
@@ -50,7 +54,11 @@ const GetTitle = ({headerType}) => {
     );
   }
   return (
-    <div className={css(styles.name)}>
+    <div
+      className={css(styles.name)}
+      onClick={() => {
+        window.location.href = '/';
+      }}>
       <img src={capImg} alt="cap" />
       <span style={{color: COLORS.bg}}>Aa</span>
       <span style={{color: COLORS.text}}>zadi</span>
