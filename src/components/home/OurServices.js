@@ -12,12 +12,14 @@ const CardItems = [
     content:
       'Study materials for various competitive exams like GATE, SSC, PSC will be provided in ease accessible format',
     image: 'examPrep.png',
+    link: 'https://drive.google.com/folderview?id=1vdqMtfbWzDaz7Z5qi9a5IByUypvfxBjE',
   },
   {
     title: '~Timed Quizzes',
     content:
       'Online quiz competitions with time limit to check your daily learning progress.',
     image: 'timedQuiz.png',
+    link: 'asdas',
   },
   // {
   //   title: '~Study Materials',
@@ -30,6 +32,7 @@ const CardItems = [
     content:
       'Various job notifications related to mechanical field including Gov/ Non-Gov vaccancies and guidence for placement drives.',
     image: 'placementAssist.png',
+    link: 'asdas',
   },
 ];
 
@@ -52,7 +55,11 @@ const getImageFromData = (data, imgname) => {
 
 const Card = ({cardItem, data}) => {
   return (
-    <div className={css(styles.cardRoot)}>
+    <div
+      className={css(styles.cardRoot)}
+      onClick={() => {
+        window.location.href = cardItem.link;
+      }}>
       <GatsbyImage
         className={css(styles.cardImage)}
         image={getImageFromData(data, cardItem.image)}

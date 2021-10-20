@@ -14,7 +14,7 @@ const NotFoundPage = () => {
         style={{
           display: 'flex',
           flexDirection: 'column',
-          backgroundColor: 'red',
+          backgroundColor: 'grey',
         }}>
         <HeaderMobile />
         <div
@@ -41,7 +41,7 @@ const NotFoundPage = () => {
       style={{
         display: 'flex',
         flexDirection: 'column',
-        backgroundColor: 'red',
+        backgroundColor: 'grey',
       }}>
       <Header />
       <div
