@@ -85,11 +85,17 @@ const Header = ({clickHandlers}) => {
     <div className={css(styles.root, headerType == 2 ? styles.colorBg : null)}>
       <GetTitle headerType={headerType} />
       <div className={css(styles.linkContainer)}>
-        {Links.map((item, id) => (
-          <div onClick={clickHandlers[item.name]} key={id}>
-            <div className={css(styles.linkItem)}>{item.name}</div>
-          </div>
-        ))}
+        {clickHandlers
+          ? Links.map((item, id) => (
+            <div onClick={clickHandlers[item.name]} key={id}>
+              <div className={css(styles.linkItem)}>{item.name}</div>
+            </div>
+          ))
+          : Links.map((item, id) => (
+            <Link to="/" key={id}>
+              <div className={css(styles.linkItem)}>{item.name}</div>
+            </Link>
+          ))}
 
         <Dropdown open={showMenu} toggle={toggeleMenu} className="d-table">
           {showMenu ? (

@@ -7,11 +7,28 @@ const Footer = () => {
     <div className={css(styles.root)}>
       <div className={css(styles.container)}>
         <div style={{display: 'flex'}}>
-          <i className="ri-instagram-line" style={{fontSize: 40}}></i>
+          <i
+            className="ri-instagram-line"
+            style={{fontSize: 40}}
+            onClick={() => {
+              window.location.href =
+                'https://instagram.com/sficucek?utm_medium=copy_link';
+            }}></i>
           <div className={css(styles.divider)} />
-          <i className="ri-facebook-circle-line" style={{fontSize: 40}}></i>
+          <i
+            className="ri-facebook-circle-line"
+            style={{fontSize: 40}}
+            onClick={() => {
+              window.location.href =
+                'https://www.facebook.com/297013207333563/posts/1438125976555608/?app=fbl';
+            }}></i>
           <div className={css(styles.divider)} />
-          <i className="ri-mail-line" style={{fontSize: 40}}></i>
+          <i
+            className="ri-mail-line"
+            style={{fontSize: 40}}
+            onClick={() => {
+              window.location.href = 'mailto:unitsficucek@gmail.com';
+            }}></i>
         </div>
 
         <div className={css(styles.text)}>SFI CUSAT</div>

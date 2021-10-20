@@ -61,7 +61,11 @@ const Card = ({cardItem, data}) => {
       <div className={css(styles.verticalLine)}></div>
 
       <div>
-        <div className={css(TypoStyle.h4)}>{cardItem.title}</div>
+        <div
+          className={css(TypoStyle.h4)}
+          style={{fontStyle: 'italic !important'}}>
+          {cardItem.title}
+        </div>
         <div className={css(styles.cardContent, TypoStyle.t2)}>
           {cardItem.content}
         </div>
@@ -120,6 +124,12 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.secondary,
     display: 'flex',
     marginTop: 73,
+    alignItems: 'center',
+
+    ':hover': {
+      transform: 'scale(1.1)',
+      transitionDuration: '0.2s',
+    },
   },
   cardImage: {
     width: 175,
