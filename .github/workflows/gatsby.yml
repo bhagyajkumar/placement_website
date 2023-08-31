@@ -69,6 +69,9 @@ jobs:
         with:
           name: gatsby-site-artifact
           path: ./public
+      - name: Set Node.js memory limit
+        run: echo 'NODE_OPTIONS=--max_old_space_size=4096' >> $GITHUB_ENV
+
 
   # Deployment job
   deploy:
