@@ -2,7 +2,7 @@ import React from 'react';
 import {StyleSheet, css} from 'aphrodite';
 import {TypoStyle} from '../../styles/Typography';
 import {COLORS} from '../../styles/Colors';
-import {useStaticQuery, graphql} from 'gatsby';
+import {useStaticQuery, graphql, navigate} from 'gatsby';
 import {GatsbyImage, getImage} from 'gatsby-plugin-image';
 
 const DepartmentList = [
