@@ -9,47 +9,47 @@ const DepartmentList = [
   {
     name: 'CIVIL',
     image: 'CIVIL.png',
-    link: 'https://drive.google.com/folderview?id=1dAS4QbZ83uK2vM2TiWu4g-qf9bacImAF',
+    link: '/departments/civil',
   },
   {
     name: 'CSE',
     image: 'CSE.png',
-    link: 'https://drive.google.com/folderview?id=1dHzEW7huX2FXQoIfOJXn_pvQYiUDVxU2',
+    link: '/departments/cse',
   },
   {
     name: 'EC',
     image: 'EC.png',
-    link: 'https://drive.google.com/folderview?id=1dHkgiJd2i_BXg7kP-AvGE-bwGhzC18q_',
+    link: '/departments/ece',
   },
   {
     name: 'EEE',
     image: 'EEE.png',
-    link: 'https://drive.google.com/folderview?id=1dRVwjwKWoM_7XdIuRkEJNm3kiqQYMVFF',
+    link: '/departments/eee',
   },
   {
     name: 'IT',
     image: 'IT.png',
-    link: 'https://drive.google.com/folderview?id=1dHzEW7huX2FXQoIfOJXn_pvQYiUDVxU2',
+    link: '/departments/it',
   },
   {
     name: 'MECH',
     image: 'MECH.png',
-    link: 'https://drive.google.com/folderview?id=1d9Cd-uodczVkL1dTKvvreDhkq-S2889J',
+    link: '/departments/mech',
   },
   {
     name: 'MCA',
     image: 'MCA.png',
-    link: 'https://drive.google.com/folderview?id=1dHzEW7huX2FXQoIfOJXn_pvQYiUDVxU2',
+    link: '/departments/mca',
   },
   {
     name: 'MATHS',
     image: 'MATHS.png',
-    link: 'https://drive.google.com/folderview?id=1fUKiypnk5XrYZ2nPPLZfjsIrnOPIwLa9',
+    link: '/departments/maths',
   },
   {
     name: 'GENERAL',
     image: 'GENERAL.png',
-    link: 'https://drive.google.com/folderview?id=1fW5rMAPu-1JWPPoW4cgu4WcklFgZf2xh',
+    link: '/departments/general',
   },
 ];
 
@@ -101,7 +101,7 @@ const DepartmentMob = () => {
             className={css(styles.departmentIcon)}
             key={id}
             onClick={() => {
-              window.open(item.link, '_blank');
+              navigate(item.link)
             }}>
             <GatsbyImage
               image={getImageFromData(data, item.image)}
